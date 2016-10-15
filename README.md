@@ -1,2 +1,2 @@
-# MY17
- Code for the MY17 car
+# FSAE Model Year 2017
+ Welcome! This is code for the 2017 car
