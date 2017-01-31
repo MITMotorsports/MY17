@@ -1,5 +1,4 @@
 #include "Can_Controller.h"
-#include "Logger.h"
 
 // Must define instance prior to use
 Can_Controller* Can_Controller::instance = NULL;
@@ -35,8 +34,7 @@ void Can_Controller::begin() {
 
   uint8_t response = delegate.begin(CAN_500KBPS);
   if (delegate.begin(CAN_500KBPS) != CAN_OK) {
-    Computer().logTwo("CAN_begin_error", canResponseToString(response));
-    Onboard().logTwo("CAN_begin_error", canResponseToString(response));
+    // TODO log that there has been a begin error
   }
 }
 
@@ -48,8 +46,7 @@ Frame Can_Controller::read() {
   Frame frame;
   uint8_t response = delegate.readMsgBuf(&frame.len, frame.body);
   if (response != CAN_OK) {
-    Computer().logTwo("CAN_read_error", canResponseToString(response));
-    Onboard().logTwo("CAN_read_error", canResponseToString(response));
+    // TODO log that there has been a read error
   }
   frame.id = delegate.getCanId();
   return frame;
@@ -93,7 +90,6 @@ String Can_Controller::canResponseToString(uint8_t response) {
 void Can_Controller::write(Frame f) {
   uint8_t response = delegate.sendMsgBuf(f.id, 0, f.len, f.body);
   if (response != CAN_OK) {
-    Computer().logTwo("CAN_write_error", canResponseToString(response));
-    Onboard().logTwo("CAN_write_error", canResponseToString(response));
+    // TODO log that there has been a write error
   }
 }
