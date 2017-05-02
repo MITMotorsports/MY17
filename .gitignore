@@ -1,6 +1,8 @@
 .DS_Store
+*/.DS_Store
 bin/*/
 *~
 doc/
 .ycm_extra_conf.pyc
 src/*/
+lib/MY17_Can_Library/

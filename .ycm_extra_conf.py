@@ -3,13 +3,13 @@ import ycm_core
 
 # You can set a directory with a lot of libraries to be search recursively here
 ArduinoLibDir = [
-  "/Applications/Arduino.app/Contents/Resources/Java/libraries"
-  ,"/Applications/Arduino.app/Contents/Java/libraries"
-  ,"/Applications/Arduino.app/Contents/Java/hardware/arduino/avr/libraries"
+    "/Applications/Arduino.app/Contents/Java/hardware/arduino/avr/libraries", 
+    "/Applications/Arduino.app/Contents/Java/libraries", 
+    "/Users/aheifetz/FSAE/ARM/MY17/lib"
 ]
 
 # This is the list of all directories to search for header files
-libDirs = ArduinoLibDir + ["lib"]
+libDirs = ArduinoLibDir
 
 flags = [
   # General flags
@@ -35,15 +35,15 @@ flags = [
   # ,'-I/opt/homebrew-cask/Caskroom/arduino/1.0.6/Arduino.app/Contents/Resources/Java/hardware/arduino/variants/mega'
 
   # You can add custom libraries here, but note that the script will automatically scan the 'lib' directory.
-  ,'-I./lib/FooLib'
-  ,'-I./lib/BarLib'
   ,'-I./lib/cppfix'
   ,'-I./lib/mcp_can'
   ,'-I./lib/MemoryFree'
   ,'-I./lib/PciManager'
   ,'-I./lib/PinChangeInt'
+  ,'-I./lib/SdFat'
   ,'-I./lib/SoftTimer'
   ,'-I./lib/SPI'
+  ,'-I./lib/RTClib'
 
   # Customize microcontroler and Arduino version
   ,'-mmcu=atmega2560'
